@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>【iPhone査定サイト】JavaでWebアプリを作ってみた</title>
+</head>
+<body>
+	<h1>iPhone査定サイトへようこそ。</h1>
+	<form method="post" action="/assessment/" th:object="${formModel}">
+	<p>あなたの機種の詳細を教えてください。</p>
+	<p>機種名は？</p>
+	<input type="radio" name="number" value="iphone10" checked>iphone10
+	<input type="radio" name="number" value="iphone11">iphone11
+	<input type="radio" name="number" value="iphone12">iphone12
+	<p>どこの携帯会社？</p>
+	<select name="maker">
+		<option value="docomo">docomo</option>
+		<option value="au">au</option>
+		<option value="softbank">softbank</option>
+		<option value="simFree">SIMフリー</option>
+	</select>
+	<p>その他</p>
+	<input type="checkbox" name="otherGlass" value="一部画面破損有り">一部画面破損有り
+	<input type="hidden" name="otherGlass" value="">
+	
+	<input type="checkbox" name="otherButton" value="ボタン異常有り">ボタン異常有り
+	<input type="hidden" name="otherButton" value="">
+	
+	<input type="checkbox" name="otherBox" value="箱一式セット">箱一式セット
+	<input type="hidden" name="otherBox" value="">
+	
+	<input type="submit" value="査定開始">
+	</form>
+	
+	<h1>査定結果</h1>
+	<p th:text="${message}"></p>
+	<p th:text="${price}"></p>
+
+</body>
+</html>
